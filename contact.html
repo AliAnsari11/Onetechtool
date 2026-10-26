@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><title>Contact — ONETECH</title>
+<meta name="description" content="Tell us about your coating or surface preparation project."><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header id="site-header"></header><main class="page"><div class="wrap"><h1>Contact</h1>
+<p class="lead">Tell us about your challenges and we'll find the right solution.</p>
+<!-- TODO: formspree.io par form banakar YOUR_FORM_ID badlein -->
+<form id="contact" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
+<div class="two"><label>First name*<input name="first_name" required></label><label>Last name*<input name="last_name" required></label></div>
+<div class="two"><label>E-mail address*<input type="email" name="email" required></label><label>Phone number*<input type="tel" name="phone" required></label></div>
+<label>Company name (optional)<input name="company"></label>
+<label>Subject*<input id="subject" name="subject" required></label>
+<label>Message*<textarea name="message" rows="6" required></textarea></label>
+<input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label style="font-weight:400"><input type="checkbox" required> I agree to the <a href="privacy-policy.html">Privacy Policy</a>, <a href="terms-of-use.html">Terms of Use</a> and <a href="cookie-policy.html">Cookie Policy</a>.</label>
+<button class="btn" type="submit">Send message</button><p id="form-msg" role="status"></p></form></div></main><footer id="site-footer"></footer>
+<script src="js/data.js"></script><script src="js/main.js"></script>
+<script>
+document.getElementById("contact").addEventListener("submit",async e=>{e.preventDefault();const m=document.getElementById("form-msg");
+try{const r=await fetch(e.target.action,{method:"POST",body:new FormData(e.target),headers:{Accept:"application/json"}});
+if(r.ok){m.textContent="Thank you. Your message has been sent. We'll get back to you soon.";e.target.reset()}else throw 0}
+catch{m.textContent="Message not sent. Try again or email "+SITE.email+"."}});
+</script></body></html>
